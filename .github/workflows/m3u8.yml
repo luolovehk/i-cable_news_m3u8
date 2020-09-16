@@ -18,17 +18,17 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-		
+
       - name: Update paper list
         run: python icable.py
-		
+
       - name: commit
         run: |
           git config --global user.email fengjueming@gmail.com
           git config --global user.name fengjueming
           git add .
           git commit -m "update" -a
-		
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
