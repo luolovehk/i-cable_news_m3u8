@@ -7,28 +7,28 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
 
-      - name: Update m3u8
-        run: python getm3u8.py
+    - name: Update m3u8
+      run: python getm3u8.py
 
-      - name: commit
-        run: |
-          git config --global user.email fengjueming@gmail.com
-          git config --global user.name fengjueming
-          git add .
-          git commit -m "update" -a
+    - name: commit
+      run: |
+        git config --global user.email fengjueming@gmail.com
+        git config --global user.name fengjueming
+        git add .
+        git commit -m "update" -a
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.TOKEN }}
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.TOKEN }}
