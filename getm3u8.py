@@ -6,7 +6,7 @@ import re
 response = requests.get(url)
 data = json.loads(response.text)
 m3u8 = data['data']['detail']['livePlayurls'][0]['playurl']
-m3u8 = re.sub(".m3u8",r'-3.m3u8', m3u8)
+#m3u8 = re.sub(".m3u8",r'-3.m3u8', m3u8)
 f = open("icable.m3u8", 'w')
 f.write("#EXTM3U"+'\n')
 f.write("#EXT-X-VERSION:6"+"\n")
