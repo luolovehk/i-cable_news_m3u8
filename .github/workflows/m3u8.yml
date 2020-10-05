@@ -19,15 +19,16 @@ jobs:
         pip install requests
 
     - name: Update m3u8
-      run: python getm3u8.py
-
-    - name: commit
       run: |
         git config --global user.email fengjueming@gmail.com
         git config --global user.name fengjueming
+        git pull
+        python getm3u8.py
+
+    - name: commit
+      run: |
         git add .
         git commit -m "update" -a --allow-empty
-        git pull
 
     - name: Push changes
       uses: ad-m/github-push-action@master
