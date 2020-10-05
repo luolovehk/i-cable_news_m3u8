@@ -27,6 +27,7 @@ jobs:
         git config --global user.name fengjueming
         git add .
         git commit -m "update" -a --allow-empty
+        git pull
 
     - name: Push changes
       uses: ad-m/github-push-action@master
